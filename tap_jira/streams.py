@@ -2071,7 +2071,29 @@ class IssueStream(JiraStream):
                 Property("customfield_11200", base_item_schema),
                 Property("customfield_11321", base_item_schema),
                 Property("customfield_11564", base_content_schema),
-                Property("customfield_11442", StringType),
+                #
+                # Custom definitions for UC Jira
+                #
+                Property(
+                    "customfield_11442",
+                    base_item_schema,
+                ),
+                Property(
+                    "customfield_10116",
+                    ObjectType(
+                        Property("avatarUrl", StringType),
+                        Property("id", StringType),
+                        Property("isShared", BooleanType),
+                        Property("isVisible", BooleanType),
+                        Property("name", StringType),
+                        Property("title", StringType)
+                    ),
+                ),
+                Property(
+                    "customfield_11537",
+                    base_item_schema,
+                ),
+                # End custom definitions
                 Property("customfield_11322", base_item_schema),
                 Property("customfield_11563", base_content_schema),
                 Property("customfield_11323", StringType),
