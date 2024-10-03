@@ -1737,7 +1737,7 @@ class IssueStream(JiraStream):
                 Property("customfield_11350", base_item_schema),
                 Property("customfield_11353", base_item_schema),
                 Property("customfield_11594", StringType),
-                Property("customfield_11473", StringType),
+                Property("customfield_11473", base_item_schema),
                 Property("customfield_11355", base_item_schema),
                 Property("customfield_11596", NumberType),
                 Property("customfield_11354", base_item_schema),
@@ -1779,7 +1779,7 @@ class IssueStream(JiraStream):
                 # Property("customfield_11458", StringType),
                 Property("customfield_11336", NumberType),
                 Property("customfield_11457", base_item_schema),
-                Property("customfield_11339", StringType),
+                Property("customfield_11339", base_item_schema),
                 Property("customfield_11459", NumberType),
                 Property(
                     "customfield_10800",
@@ -1862,6 +1862,22 @@ class IssueStream(JiraStream):
                 Property(
                     "customfield_11442",
                     base_item_schema,
+                ),
+                Property(
+                    "customfield_11476",
+                    base_item_schema,
+                ),
+                Property(
+                    "customfield_11364",
+                    base_item_schema,
+                ),
+                Property(
+                    "customfield_11581",
+                    base_item_schema,
+                ),
+                Property(
+                    "customfield_11535",
+                    ArrayType(base_item_schema),
                 ),
                 Property(
                     "customfield_10116",
