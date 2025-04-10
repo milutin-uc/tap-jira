@@ -1894,6 +1894,72 @@ class IssueStream(JiraStream):
                     "customfield_11537",
                     base_item_schema,
                 ),
+                
+                Property(
+                    "customfield_10406",
+                    ObjectType(
+                        Property("_link", StringType),
+                        Property("id", StringType),
+                        Property("name", StringType),
+                        Property("slaDisplayFormat", StringType),
+                        Property(
+                            "completedCycles",
+                            ArrayType(
+                                ObjectType(
+                                    Property(
+                                        "startTime", 
+                                        ObjectType(
+                                            Property("epochMillis", IntegerType),
+                                            Property("friendly", DateTimeType),
+                                            Property("iso8601", DateTimeType),
+                                            Property("jira", DateTimeType),
+                                        ),
+                                    ),
+                                    Property(
+                                        "stopTime", 
+                                        ObjectType(
+                                            Property("epochMillis", IntegerType),
+                                            Property("friendly", DateTimeType),
+                                            Property("iso8601", DateTimeType),
+                                            Property("jira", DateTimeType),
+                                        ),
+                                    ),
+                                    Property(
+                                        "breachTime", 
+                                        ObjectType(
+                                            Property("epochMillis", IntegerType),
+                                            Property("friendly", DateTimeType),
+                                            Property("iso8601", DateTimeType),
+                                            Property("jira", DateTimeType),
+                                        ),
+                                    ),
+                                    Property("breached", BooleanType),
+                                    Property(
+                                        "goalDuration",
+                                        ObjectType(
+                                            Property("millis", IntegerType),
+                                            Property("friendly", StringType),
+                                        ),
+                                    ),
+                                    Property(
+                                        "elapsedTime",
+                                        ObjectType(
+                                            Property("millis", IntegerType),
+                                            Property("friendly", StringType),
+                                        ),
+                                    ),                                    
+                                    Property(
+                                        "remainingTime",
+                                        ObjectType(
+                                            Property("millis", IntegerType),
+                                            Property("friendly", StringType),
+                                        ),
+                                    )
+                                )
+                            )
+                        )                               
+                    )
+                ),
                 # End custom definitions
                 Property("customfield_11322", base_item_schema),
                 Property("customfield_11563", base_content_schema),
