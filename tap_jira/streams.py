@@ -2098,6 +2098,21 @@ class IssueStream(JiraStream):
                         ),
                     ),
                 ),
+                Property("customfield_10101", StringType),
+                Property(
+                    "customfield_10300", 
+                    ArrayType(
+                        ObjectType(
+                            Property("id", IntegerType),
+                            Property("uuid", StringType),
+                            Property("name", StringType),
+                            Property(
+                                    "_links", ObjectType(Property("self", StringType))
+                            ),
+                            Property("scimManaged", BooleanType),
+                        ),
+                    ),
+                ),
                 # End custom definitions
                 Property("customfield_11322", base_item_schema),
                 Property("customfield_11563", base_content_schema),
