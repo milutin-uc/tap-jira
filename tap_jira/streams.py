@@ -1957,7 +1957,65 @@ class IssueStream(JiraStream):
                                     )
                                 )
                             )
-                        )                               
+                        ),
+                        Property(
+                            "ongoingCycle",
+                            ArrayType(
+                                ObjectType(
+                                    Property(
+                                        "startTime", 
+                                        ObjectType(
+                                            Property("epochMillis", IntegerType),
+                                            Property("friendly", DateTimeType),
+                                            Property("iso8601", DateTimeType),
+                                            Property("jira", DateTimeType),
+                                        ),
+                                    ),
+                                    Property(
+                                        "stopTime", 
+                                        ObjectType(
+                                            Property("epochMillis", IntegerType),
+                                            Property("friendly", DateTimeType),
+                                            Property("iso8601", DateTimeType),
+                                            Property("jira", DateTimeType),
+                                        ),
+                                    ),
+                                    Property(
+                                        "breachTime", 
+                                        ObjectType(
+                                            Property("epochMillis", IntegerType),
+                                            Property("friendly", DateTimeType),
+                                            Property("iso8601", DateTimeType),
+                                            Property("jira", DateTimeType),
+                                        ),
+                                    ),
+                                    Property("breached", BooleanType),
+                                    Property("paused", BooleanType),
+                                    Property("withinCalendarHours", BooleanType),
+                                    Property(
+                                        "goalDuration",
+                                        ObjectType(
+                                            Property("millis", IntegerType),
+                                            Property("friendly", StringType),
+                                        ),
+                                    ),
+                                    Property(
+                                        "elapsedTime",
+                                        ObjectType(
+                                            Property("millis", IntegerType),
+                                            Property("friendly", StringType),
+                                        ),
+                                    ),                                    
+                                    Property(
+                                        "remainingTime",
+                                        ObjectType(
+                                            Property("millis", IntegerType),
+                                            Property("friendly", StringType),
+                                        ),
+                                    )
+                                )
+                            )
+                        )                                
                     )
                 ),
                 # End custom definitions
