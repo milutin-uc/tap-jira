@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Optional
 
 from singer_sdk import typing as th  # JSON Schema typing helpers
+from singer_sdk.pagination import JSONPathPaginator
 
 from tap_jira.client import JiraStream
 
@@ -372,7 +373,7 @@ class ProjectStream(JiraStream):
 class IssueStream(JiraStream):
 
     """
-    https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
+    https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-jql-get
     """
 
     """
@@ -385,11 +386,12 @@ class IssueStream(JiraStream):
     """
 
     name = "issues"
-    path = "/search"
+    path = "/search/jql"
     primary_keys = ["id"]
     replication_key = "id"
     replication_method = "INCREMENTAL"
     records_jsonpath = "$[issues][*]"  # Or override `parse_response`.
+    next_page_token_jsonpath = "$.nextPageToken"  # noqa: S105
     instance_name = "issues"
 
     __content_schema = __content_schema = ArrayType(
@@ -2534,6 +2536,10 @@ class IssueStream(JiraStream):
         Property("updated", StringType),
     ).to_dict()
 
+    def get_new_paginator(self) -> JSONPathPaginator:
+        """Return a new paginator for this stream."""
+        return JSONPathPaginator(jsonpath=self.next_page_token_jsonpath)
+
     def get_url_params(
         self,
         context: dict | None,
@@ -2543,29 +2549,27 @@ class IssueStream(JiraStream):
 
         params["maxResults"] = self.config.get("page_size", {}).get("issues", 10)
 
-        params["jql"] = []  # init a query param
+        jql: list[str] = []
 
         if next_page_token:
-            params["startAt"] = next_page_token
-
-        if self.replication_key:
-            params["sort"] = "asc"
-            params["order_by"] = self.replication_key
+            params["nextPageToken"] = next_page_token
 
         if "start_date" in self.config:
             start_date = self.config["start_date"]
-            params["jql"].append(f"(created>={start_date} or updated>={start_date})")
+            jql.append(f"(created>='{start_date}' or updated>='{start_date}')")
 
         if "end_date" in self.config:
             end_date = self.config["end_date"]
-            params["jql"].append(f"(created<{end_date} or updated<{start_date})")
+            jql.append(f"(created<'{end_date}' or updated<'{end_date}')")
 
-        if params["jql"]:
-            jql = " and ".join(params["jql"])
-            params["jql"] = jql
+        if (
+            base_jql := self.config.get("stream_options", {})
+            .get("issues", {})
+            .get("jql")
+        ):
+            jql.append(f"({base_jql})")
 
-        else:
-            params.pop("jql")  # drop if there's no query
+        params["jql"] = " and ".join(jql) + f" order by {self.replication_key} asc"
 
         return params
 
