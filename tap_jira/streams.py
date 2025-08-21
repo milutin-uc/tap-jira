@@ -2281,6 +2281,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                 ),
+                Property("customfield_11392", ArrayType(base_item_schema)),
                 # End custom definitions
                 Property("customfield_11322", base_item_schema),
                 Property("customfield_11563", base_content_schema),
