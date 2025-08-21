@@ -676,6 +676,126 @@ class IssueStream(JiraStream):
             )
         )                                
     )
+    sd_sla_schema = ObjectType(
+        Property("_link", StringType),
+        Property("id", StringType),
+        Property("name", StringType),
+        Property("slaDisplayFormat", StringType),
+        Property(
+            "completedCycles",
+            ArrayType(
+                ObjectType(
+                    Property(
+                        "startTime", 
+                        ObjectType(
+                            Property("epochMillis", IntegerType),
+                            Property("friendly", DateTimeType),
+                            Property("iso8601", DateTimeType),
+                            Property("jira", DateTimeType),
+                        ),
+                    ),
+                    Property(
+                        "stopTime", 
+                        ObjectType(
+                            Property("epochMillis", IntegerType),
+                            Property("friendly", DateTimeType),
+                            Property("iso8601", DateTimeType),
+                            Property("jira", DateTimeType),
+                        ),
+                    ),
+                    Property(
+                        "breachTime", 
+                        ObjectType(
+                            Property("epochMillis", IntegerType),
+                            Property("friendly", DateTimeType),
+                            Property("iso8601", DateTimeType),
+                            Property("jira", DateTimeType),
+                        ),
+                    ),
+                    Property("breached", BooleanType),
+                    Property(
+                        "goalDuration",
+                        ObjectType(
+                            Property("millis", IntegerType),
+                            Property("friendly", StringType),
+                        ),
+                    ),
+                    Property(
+                        "elapsedTime",
+                        ObjectType(
+                            Property("millis", IntegerType),
+                            Property("friendly", StringType),
+                        ),
+                    ),                                    
+                    Property(
+                        "remainingTime",
+                        ObjectType(
+                            Property("millis", IntegerType),
+                            Property("friendly", StringType),
+                        ),
+                    )
+                )
+            )
+        ),
+        Property(
+            "ongoingCycle",
+            ArrayType(
+                ObjectType(
+                    Property(
+                        "startTime", 
+                        ObjectType(
+                            Property("epochMillis", IntegerType),
+                            Property("friendly", DateTimeType),
+                            Property("iso8601", DateTimeType),
+                            Property("jira", DateTimeType),
+                        ),
+                    ),
+                    Property(
+                        "stopTime", 
+                        ObjectType(
+                            Property("epochMillis", IntegerType),
+                            Property("friendly", DateTimeType),
+                            Property("iso8601", DateTimeType),
+                            Property("jira", DateTimeType),
+                        ),
+                    ),
+                    Property(
+                        "breachTime", 
+                        ObjectType(
+                            Property("epochMillis", IntegerType),
+                            Property("friendly", DateTimeType),
+                            Property("iso8601", DateTimeType),
+                            Property("jira", DateTimeType),
+                        ),
+                    ),
+                    Property("breached", BooleanType),
+                    Property("paused", BooleanType),
+                    Property("withinCalendarHours", BooleanType),
+                    Property(
+                        "goalDuration",
+                        ObjectType(
+                            Property("millis", IntegerType),
+                            Property("friendly", StringType),
+                        ),
+                    ),
+                    Property(
+                        "elapsedTime",
+                        ObjectType(
+                            Property("millis", IntegerType),
+                            Property("friendly", StringType),
+                        ),
+                    ),                                    
+                    Property(
+                        "remainingTime",
+                        ObjectType(
+                            Property("millis", IntegerType),
+                            Property("friendly", StringType),
+                        ),
+                    )
+                )
+            )
+        )                                
+    )
 
     schema = PropertiesList(
         Property("expand", StringType),
