@@ -732,7 +732,7 @@ class IssueStream(JiraStream):
             ArrayType(
                 ObjectType(
                     Property(
-                        "startTime", 
+                        "startTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -741,7 +741,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                     Property(
-                        "stopTime", 
+                        "stopTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -750,7 +750,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                     Property(
-                        "breachTime", 
+                        "breachTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -772,7 +772,7 @@ class IssueStream(JiraStream):
                             Property("millis", IntegerType),
                             Property("friendly", StringType),
                         ),
-                    ),                                    
+                    ),
                     Property(
                         "remainingTime",
                         ObjectType(
@@ -788,7 +788,7 @@ class IssueStream(JiraStream):
             ArrayType(
                 ObjectType(
                     Property(
-                        "startTime", 
+                        "startTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -797,7 +797,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                     Property(
-                        "stopTime", 
+                        "stopTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -806,7 +806,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                     Property(
-                        "breachTime", 
+                        "breachTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -830,7 +830,7 @@ class IssueStream(JiraStream):
                             Property("millis", IntegerType),
                             Property("friendly", StringType),
                         ),
-                    ),                                    
+                    ),
                     Property(
                         "remainingTime",
                         ObjectType(
@@ -840,7 +840,7 @@ class IssueStream(JiraStream):
                     )
                 )
             )
-        )                                
+        )
     )
     sd_sla_schema = ObjectType(
         Property("_link", StringType),
@@ -852,7 +852,7 @@ class IssueStream(JiraStream):
             ArrayType(
                 ObjectType(
                     Property(
-                        "startTime", 
+                        "startTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -861,7 +861,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                     Property(
-                        "stopTime", 
+                        "stopTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -870,7 +870,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                     Property(
-                        "breachTime", 
+                        "breachTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -892,7 +892,7 @@ class IssueStream(JiraStream):
                             Property("millis", IntegerType),
                             Property("friendly", StringType),
                         ),
-                    ),                                    
+                    ),
                     Property(
                         "remainingTime",
                         ObjectType(
@@ -908,7 +908,7 @@ class IssueStream(JiraStream):
             ArrayType(
                 ObjectType(
                     Property(
-                        "startTime", 
+                        "startTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -917,7 +917,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                     Property(
-                        "stopTime", 
+                        "stopTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -926,7 +926,7 @@ class IssueStream(JiraStream):
                         ),
                     ),
                     Property(
-                        "breachTime", 
+                        "breachTime",
                         ObjectType(
                             Property("epochMillis", IntegerType),
                             Property("friendly", DateTimeType),
@@ -950,7 +950,7 @@ class IssueStream(JiraStream):
                             Property("millis", IntegerType),
                             Property("friendly", StringType),
                         ),
-                    ),                                    
+                    ),
                     Property(
                         "remainingTime",
                         ObjectType(
@@ -960,7 +960,7 @@ class IssueStream(JiraStream):
                     )
                 )
             )
-        )                                
+        )
     )
 
     schema = PropertiesList(
@@ -2336,7 +2336,7 @@ class IssueStream(JiraStream):
                             Property("completeDate", DateTimeType),
                         ),
                     ),
-                ), 
+                ),
                 Property("customfield_11538", base_item_schema),
                 Property(
                     "customfield_10400",
@@ -2381,14 +2381,14 @@ class IssueStream(JiraStream):
                                 Property("issueTypeId", StringType),
                                 Property("serviceDeskId", StringType),
                                 Property("portalId", StringType),
-                                Property("groupIds", ArrayType(StringType)), 
+                                Property("groupIds", ArrayType(StringType)),
                             ),
                         ),
                     ),
                 ),
                 Property("customfield_10101", StringType),
                 Property(
-                    "customfield_10300", 
+                    "customfield_10300",
                     ArrayType(
                         ObjectType(
                             Property("id", IntegerType),
