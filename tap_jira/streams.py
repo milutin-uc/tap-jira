@@ -556,6 +556,172 @@ class IssueStream(JiraStream):
             ),
         ),
     )
+    base_content_schema = ObjectType(
+        Property(
+            "content",
+            ArrayType(
+                ObjectType(
+                    Property("version", IntegerType),
+                    Property("text", StringType),
+                    Property("type", StringType),
+                    Property("content", __content_schema),
+                    Property(
+                        "attrs",
+                        ObjectType(
+                            Property("href", StringType),
+                            Property("colspan", IntegerType),
+                            Property("alt", StringType),
+                            Property("timestamp", StringType),
+                            Property(
+                                "colwidth",
+                                ArrayType(IntegerType),
+                            ),
+                            Property("language", StringType),
+                            Property("background", StringType),
+                            Property(
+                                "isNumberColumnEnabled",
+                                BooleanType,
+                            ),
+                            Property("localId", StringType),
+                            Property("color", StringType),
+                            Property("panelType", StringType),
+                            Property("level", IntegerType),
+                            Property("accessLevel", StringType),
+                            Property("style", StringType),
+                            Property("order", IntegerType),
+                            Property("text", StringType),
+                            Property("shortName", StringType),
+                            Property("url", StringType),
+                            Property("layout", StringType),
+                            Property("id", StringType),
+                            Property("type", StringType),
+                            Property("collection", StringType),
+                            Property("width", NumberType),
+                            Property("height", NumberType),
+                            Property("occurrenceKey", StringType),
+                        ),
+                    ),
+                    Property(
+                        "marks",
+                        ArrayType(
+                            ObjectType(
+                                Property("type", StringType),
+                                Property(
+                                    "attrs",
+                                    ObjectType(
+                                        Property(
+                                            "href",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "colspan",
+                                            IntegerType,
+                                        ),
+                                        Property(
+                                            "alt",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "timestamp",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "colwidth",
+                                            ArrayType(IntegerType),
+                                        ),
+                                        Property(
+                                            "language",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "background",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "isNumberColumnEnabled",
+                                            BooleanType,
+                                        ),
+                                        Property(
+                                            "localId",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "color",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "panelType",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "level",
+                                            IntegerType,
+                                        ),
+                                        Property(
+                                            "accessLevel",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "style",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "order",
+                                            IntegerType,
+                                        ),
+                                        Property(
+                                            "text",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "shortName",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "url",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "layout",
+                                            StringType,
+                                        ),
+                                        Property("id", StringType),
+                                        Property(
+                                            "type",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "collection",
+                                            StringType,
+                                        ),
+                                        Property(
+                                            "width",
+                                            NumberType,
+                                        ),
+                                        Property(
+                                            "height",
+                                            NumberType,
+                                        ),
+                                        Property(
+                                            "occurrenceKey",
+                                            StringType,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                )
+            ),
+        ),
+        Property("type", StringType),
+        Property("version", IntegerType),
+    )
+    base_item_schema = ObjectType(
+        Property("id", StringType),
+        Property("self", StringType),
+        Property("value", StringType),
+    )
     sd_sla_schema = ObjectType(
         Property("_link", StringType),
         Property("id", StringType),
