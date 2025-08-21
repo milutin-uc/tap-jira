@@ -711,7 +711,7 @@ class IssueStream(JiraStream):
                             ),
                         ),
                     ),
-                )
+                ),
             ),
         ),
         Property("type", StringType),
@@ -779,9 +779,9 @@ class IssueStream(JiraStream):
                             Property("millis", IntegerType),
                             Property("friendly", StringType),
                         ),
-                    )
-                )
-            )
+                    ),
+                ),
+            ),
         ),
         Property(
             "ongoingCycle",
@@ -837,130 +837,10 @@ class IssueStream(JiraStream):
                             Property("millis", IntegerType),
                             Property("friendly", StringType),
                         ),
-                    )
-                )
-            )
-        )
-    )
-    sd_sla_schema = ObjectType(
-        Property("_link", StringType),
-        Property("id", StringType),
-        Property("name", StringType),
-        Property("slaDisplayFormat", StringType),
-        Property(
-            "completedCycles",
-            ArrayType(
-                ObjectType(
-                    Property(
-                        "startTime",
-                        ObjectType(
-                            Property("epochMillis", IntegerType),
-                            Property("friendly", DateTimeType),
-                            Property("iso8601", DateTimeType),
-                            Property("jira", DateTimeType),
-                        ),
                     ),
-                    Property(
-                        "stopTime",
-                        ObjectType(
-                            Property("epochMillis", IntegerType),
-                            Property("friendly", DateTimeType),
-                            Property("iso8601", DateTimeType),
-                            Property("jira", DateTimeType),
-                        ),
-                    ),
-                    Property(
-                        "breachTime",
-                        ObjectType(
-                            Property("epochMillis", IntegerType),
-                            Property("friendly", DateTimeType),
-                            Property("iso8601", DateTimeType),
-                            Property("jira", DateTimeType),
-                        ),
-                    ),
-                    Property("breached", BooleanType),
-                    Property(
-                        "goalDuration",
-                        ObjectType(
-                            Property("millis", IntegerType),
-                            Property("friendly", StringType),
-                        ),
-                    ),
-                    Property(
-                        "elapsedTime",
-                        ObjectType(
-                            Property("millis", IntegerType),
-                            Property("friendly", StringType),
-                        ),
-                    ),
-                    Property(
-                        "remainingTime",
-                        ObjectType(
-                            Property("millis", IntegerType),
-                            Property("friendly", StringType),
-                        ),
-                    )
-                )
-            )
+                ),
+            ),
         ),
-        Property(
-            "ongoingCycle",
-            ArrayType(
-                ObjectType(
-                    Property(
-                        "startTime",
-                        ObjectType(
-                            Property("epochMillis", IntegerType),
-                            Property("friendly", DateTimeType),
-                            Property("iso8601", DateTimeType),
-                            Property("jira", DateTimeType),
-                        ),
-                    ),
-                    Property(
-                        "stopTime",
-                        ObjectType(
-                            Property("epochMillis", IntegerType),
-                            Property("friendly", DateTimeType),
-                            Property("iso8601", DateTimeType),
-                            Property("jira", DateTimeType),
-                        ),
-                    ),
-                    Property(
-                        "breachTime",
-                        ObjectType(
-                            Property("epochMillis", IntegerType),
-                            Property("friendly", DateTimeType),
-                            Property("iso8601", DateTimeType),
-                            Property("jira", DateTimeType),
-                        ),
-                    ),
-                    Property("breached", BooleanType),
-                    Property("paused", BooleanType),
-                    Property("withinCalendarHours", BooleanType),
-                    Property(
-                        "goalDuration",
-                        ObjectType(
-                            Property("millis", IntegerType),
-                            Property("friendly", StringType),
-                        ),
-                    ),
-                    Property(
-                        "elapsedTime",
-                        ObjectType(
-                            Property("millis", IntegerType),
-                            Property("friendly", StringType),
-                        ),
-                    ),
-                    Property(
-                        "remainingTime",
-                        ObjectType(
-                            Property("millis", IntegerType),
-                            Property("friendly", StringType),
-                        ),
-                    )
-                )
-            )
-        )
     )
 
     schema = PropertiesList(
@@ -2171,7 +2051,7 @@ class IssueStream(JiraStream):
                             Property("_link", StringType),
                             Property("id", StringType),
                             Property("name", StringType),
-                        )
+                        ),
                     ),
                 ),
                 Property("customfield_11586", StringType),
@@ -2295,7 +2175,7 @@ class IssueStream(JiraStream):
                         Property("isShared", BooleanType),
                         Property("isVisible", BooleanType),
                         Property("name", StringType),
-                        Property("title", StringType)
+                        Property("title", StringType),
                     ),
                 ),
                 Property(
@@ -2372,7 +2252,7 @@ class IssueStream(JiraStream):
                                 Property("_expands", ArrayType(StringType)),
                                 Property("id", StringType),
                                 Property(
-                                    "_links", ObjectType(Property("self", StringType))
+                                    "_links", ObjectType(Property("self", StringType)),
                                 ),
                                 Property("name", StringType),
                                 Property("description", StringType),
@@ -2395,7 +2275,7 @@ class IssueStream(JiraStream):
                             Property("uuid", StringType),
                             Property("name", StringType),
                             Property(
-                                    "_links", ObjectType(Property("self", StringType))
+                                    "_links", ObjectType(Property("self", StringType)),
                             ),
                             Property("scimManaged", BooleanType),
                         ),
@@ -2474,7 +2354,7 @@ class IssueStream(JiraStream):
                             ObjectType(
                                 Property("_expands", ArrayType(StringType)),
                                 Property(
-                                    "_links", ObjectType(Property("self", StringType))
+                                    "_links", ObjectType(Property("self", StringType)),
                                 ),
                                 Property("description", StringType),
                                 Property("groupIds", ArrayType(StringType)),
