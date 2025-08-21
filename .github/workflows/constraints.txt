@@ -1,5 +1,5 @@
-nox==2024.4.15
-nox-poetry==1.0.3
-pip==24.0
-poetry==1.8.1
-poetry-dynamic-versioning==1.2.0
+nox==2025.5.1
+nox-poetry==1.2.0
+pip==25.2
+poetry==2.1.4
+poetry-dynamic-versioning==1.9.1
