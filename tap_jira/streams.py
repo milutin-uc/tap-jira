@@ -2502,9 +2502,7 @@ class IssueStream(JiraStream):
         params: dict = {}
 
         params["maxResults"] = self.config.get("page_size", {}).get("issues", 10)
-        params["fields"] = (
-            self.config.get("stream_options", {}).get("issues", {}).get("fields")
-        )
+        params["fields"] = ["*all"]
 
         jql: list[str] = []
 
@@ -2527,6 +2525,7 @@ class IssueStream(JiraStream):
             jql.append(f"({base_jql})")
 
         params["jql"] = " and ".join(jql) + f" order by {self.replication_key} asc"
+        self.logger.info(f"Request params: {params}")
 
         return params
 
