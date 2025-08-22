@@ -2393,7 +2393,7 @@ class IssueStream(JiraStream):
                 Property("customfield_11664", StringType),
                 Property("customfield_11414", DateTimeType),
                 Property("customfield_11656", StringType),
-                Property("customfield_11413", base_item_schema),
+                Property("customfield_11413", ArrayType(base_item_schema)),
                 Property("customfield_11658", StringType),
                 Property("customfield_11415", DateType),
                 Property("customfield_11657", base_item_schema),
