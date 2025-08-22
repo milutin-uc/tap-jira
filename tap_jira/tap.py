@@ -72,7 +72,7 @@ class TapJira(Tap):
                             th.StringType,
                             description="A comma-separated list of fields to include",
                             title="Fields",
-                            default="*all",
+                            default=["*all"],
                         ),
                     ),
                     title="Issues Stream Options",
