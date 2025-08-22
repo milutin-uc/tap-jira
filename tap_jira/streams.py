@@ -2502,6 +2502,9 @@ class IssueStream(JiraStream):
         params: dict = {}
 
         params["maxResults"] = self.config.get("page_size", {}).get("issues", 10)
+        params["fields"] = (
+            self.config.get("stream_options", {}).get("issues", {}).get("fields")
+        )
 
         jql: list[str] = []
 
